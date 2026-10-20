@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { background: #0a0908; color-scheme: dark; scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { @apply bg-noir text-ivory font-sans antialiased; overflow-x: hidden; }
+::selection { background: #c9a15b; color: #0a0908; }
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+  .kicker { @apply inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[.32em] text-gold; }
+  .h2 { @apply font-serif text-4xl sm:text-6xl font-medium leading-[1.02] text-ivory; }
+  .lead { @apply text-base sm:text-lg font-light leading-relaxed text-ivory/65; }
+  .gold { background: linear-gradient(115deg, #f3dca6 0%, #c9a15b 45%, #8c6a2f 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .rule { @apply h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent; }
+  .btn-gold { @apply inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-medium uppercase tracking-[.18em] text-noir transition-all duration-300 hover:-translate-y-0.5; background: linear-gradient(115deg, #f3dca6, #c9a15b 50%, #a07c3c); box-shadow: 0 14px 40px -14px rgba(201, 161, 91, .7); }
+  .btn-line { @apply inline-flex items-center justify-center gap-2 rounded-full border border-gold/40 px-8 py-4 text-sm font-medium uppercase tracking-[.18em] text-ivory transition-colors hover:border-gold hover:bg-gold/10; }
+  .card { @apply rounded-[28px] border border-ivory/10 bg-noir-2; }
+  .field { @apply w-full rounded-2xl border border-ivory/10 bg-ivory/[.04] px-4 py-3.5 text-base text-ivory placeholder:text-ivory/35 outline-none transition-colors focus:border-gold/70; }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation: none !important; }
+}
